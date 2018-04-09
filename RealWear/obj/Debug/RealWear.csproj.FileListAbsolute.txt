@@ -1,0 +1,99 @@
+F:\Projects\Android\RealWear\RealWear\bin\Debug\RealWear.dll
+F:\Projects\Android\RealWear\RealWear\bin\Debug\RealWear.pdb
+F:\Projects\Android\RealWear\RealWear\bin\Debug\RealWear.RealWear.apk
+F:\Projects\Android\RealWear\RealWear\bin\Debug\RealWear.RealWear-Signed.apk
+F:\Projects\Android\RealWear\RealWear\obj\Debug\RealWear.dll
+F:\Projects\Android\RealWear\RealWear\obj\Debug\RealWear.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\bin\RealWear.RealWear.apk
+F:\Projects\Android\RealWear\RealWear\obj\Debug\res\layout\main.xml
+F:\Projects\Android\RealWear\RealWear\obj\Debug\res\values\strings.xml
+F:\Projects\Android\RealWear\RealWear\obj\Debug\R.cs.flag
+F:\Projects\Android\RealWear\RealWear\obj\Debug\uploadflags.txt
+F:\Projects\Android\RealWear\RealWear\bin\Debug\Mono.Android.pdb
+F:\Projects\Android\RealWear\RealWear\bin\Debug\mscorlib.pdb
+F:\Projects\Android\RealWear\RealWear\bin\Debug\System.Core.pdb
+F:\Projects\Android\RealWear\RealWear\bin\Debug\System.pdb
+F:\Projects\Android\RealWear\RealWear\bin\Debug\System.Xml.pdb
+F:\Projects\Android\RealWear\RealWear\bin\Debug\System.Net.Http.pdb
+F:\Projects\Android\RealWear\RealWear\bin\Debug\System.Runtime.Serialization.pdb
+F:\Projects\Android\RealWear\RealWear\bin\Debug\System.ServiceModel.Internals.pdb
+F:\Projects\Android\RealWear\RealWear\bin\Debug\Mono.Security.pdb
+F:\Projects\Android\RealWear\RealWear\bin\Debug\System.ComponentModel.Composition.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\linksrc\Mono.Android.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\linksrc\mscorlib.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\linksrc\System.Core.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\linksrc\System.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\linksrc\System.Xml.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\linksrc\System.Net.Http.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\linksrc\System.Runtime.Serialization.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\linksrc\System.ServiceModel.Internals.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\linksrc\Mono.Security.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\linksrc\System.ComponentModel.Composition.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\linksrc\RealWear.dll.mdb
+F:\Projects\Android\RealWear\RealWear\bin\Debug\RealWear.dll.mdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\assets\RealWear.dll.mdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\assets\Mono.Android.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\assets\Mono.Security.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\assets\mscorlib.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\assets\System.ComponentModel.Composition.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\assets\System.Core.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\assets\System.Net.Http.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\assets\System.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\assets\System.Runtime.Serialization.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\assets\System.ServiceModel.Internals.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\android\assets\System.Xml.pdb
+F:\Projects\Android\RealWear\RealWear\obj\Debug\RealWear.csprojResolveAssemblyReference.cache
+F:\Projects\Android\RealWear\RealWear\obj\Debug\res\layout\visionresult.xml
+D:\Android Projects\RealWear\RealWear\bin\Debug\RealWear.dll
+D:\Android Projects\RealWear\RealWear\bin\Debug\RealWear.pdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\RealWear.RealWear.apk
+D:\Android Projects\RealWear\RealWear\bin\Debug\RealWear.RealWear-Signed.apk
+D:\Android Projects\RealWear\RealWear\obj\Debug\RealWear.csprojResolveAssemblyReference.cache
+D:\Android Projects\RealWear\RealWear\obj\Debug\RealWear.csproj.CoreCompileInputs.cache
+D:\Android Projects\RealWear\RealWear\obj\Debug\RealWear.dll
+D:\Android Projects\RealWear\RealWear\obj\Debug\RealWear.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\bin\RealWear.RealWear.apk
+D:\Android Projects\RealWear\RealWear\obj\Debug\res\layout\visionresult.xml
+D:\Android Projects\RealWear\RealWear\obj\Debug\res\layout\main.xml
+D:\Android Projects\RealWear\RealWear\obj\Debug\res\values\strings.xml
+D:\Android Projects\RealWear\RealWear\obj\Debug\R.cs.flag
+D:\Android Projects\RealWear\RealWear\obj\Debug\uploadflags.txt
+D:\Android Projects\RealWear\RealWear\bin\Debug\Mono.Android.pdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\mscorlib.pdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\System.Core.pdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\System.pdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\System.Xml.pdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\System.Net.Http.pdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\System.Runtime.Serialization.pdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\System.ServiceModel.Internals.pdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\Mono.Security.pdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\System.ComponentModel.Composition.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\Mono.Android.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\mscorlib.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\System.Core.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\System.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\System.Xml.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\System.Net.Http.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\System.Runtime.Serialization.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\System.ServiceModel.Internals.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\Mono.Security.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\System.ComponentModel.Composition.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\RealWear.dll.mdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\RealWear.dll.mdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\RealWear.dll.mdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\Mono.Android.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\Mono.Security.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\mscorlib.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\System.ComponentModel.Composition.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\System.Core.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\System.Net.Http.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\System.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\System.Runtime.Serialization.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\System.ServiceModel.Internals.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\System.Xml.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\res\layout\customcamera.xml
+D:\Android Projects\RealWear\RealWear\bin\Debug\System.Web.Services.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\System.Web.Services.pdb
+D:\Android Projects\RealWear\RealWear\obj\Debug\android\assets\System.Web.Services.pdb
+D:\Android Projects\RealWear\RealWear\bin\Debug\RealWear.dll
+D:\Android Projects\RealWear\RealWear\obj\Debug\linksrc\RealWear.dll.mdb

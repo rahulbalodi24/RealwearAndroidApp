@@ -1,0 +1,12 @@
+RealWear.CustomCamera, RealWear;md59cd82640b999b80f059c3629b7ed686b.CustomCamera
+RealWear.CustomCamera, RealWear, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59cd82640b999b80f059c3629b7ed686b.CustomCamera
+RealWear.CustomCamera;md59cd82640b999b80f059c3629b7ed686b.CustomCamera
+realwear.CustomCamera;md59cd82640b999b80f059c3629b7ed686b.CustomCamera
+RealWear.MainActivity, RealWear;md59cd82640b999b80f059c3629b7ed686b.MainActivity
+RealWear.MainActivity, RealWear, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59cd82640b999b80f059c3629b7ed686b.MainActivity
+RealWear.MainActivity;md59cd82640b999b80f059c3629b7ed686b.MainActivity
+realwear.MainActivity;md59cd82640b999b80f059c3629b7ed686b.MainActivity
+RealWear.VisionResult, RealWear;md59cd82640b999b80f059c3629b7ed686b.VisionResult
+RealWear.VisionResult, RealWear, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59cd82640b999b80f059c3629b7ed686b.VisionResult
+RealWear.VisionResult;md59cd82640b999b80f059c3629b7ed686b.VisionResult
+realwear.VisionResult;md59cd82640b999b80f059c3629b7ed686b.VisionResult
