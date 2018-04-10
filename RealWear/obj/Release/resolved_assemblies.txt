@@ -1,0 +1,10 @@
+D:\Android Projects\RealWear\RealWear\obj\Release\android\assets\RealWear.dll
+D:\Android Projects\RealWear\RealWear\obj\Release\android\assets\Java.Interop.dll
+D:\Android Projects\RealWear\RealWear\obj\Release\android\assets\Mono.Android.dll
+D:\Android Projects\RealWear\RealWear\obj\Release\android\assets\mscorlib.dll
+D:\Android Projects\RealWear\RealWear\obj\Release\android\assets\System.Core.dll
+D:\Android Projects\RealWear\RealWear\obj\Release\android\assets\System.dll
+D:\Android Projects\RealWear\RealWear\obj\Release\android\assets\System.Net.Http.dll
+D:\Android Projects\RealWear\RealWear\obj\Release\android\assets\System.Web.Services.dll
+D:\Android Projects\RealWear\RealWear\obj\Release\android\assets\System.Runtime.Serialization.dll
+D:\Android Projects\RealWear\RealWear\obj\Release\android\assets\Mono.Security.dll

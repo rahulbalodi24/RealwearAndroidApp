@@ -11,6 +11,11 @@ using Android.Content.PM;
 using Android.Net;
 using System.Collections.Generic;
 using Android.Speech;
+using System.Threading.Tasks;
+using System.Web;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Android;
 
 namespace RealWear
 {
@@ -28,15 +33,36 @@ namespace RealWear
         private TextView textBox;
         private Button recButton;
         ImageView _imageView;
+
+        public async Task CheckPermission()
+        {
+            bool arePermissionsGranted = false;
+            
+            //return arePermissionsGranted;
+        }
+       
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            string permission = Manifest.Permission.ReadExternalStorage;
+            if (CheckSelfPermission(permission) != (int)Permission.Granted)
+            {
+                string[] permissions = { Manifest.Permission.ReadExternalStorage };
+                RequestPermissions(permissions, 0);
+            }
+            permission = Manifest.Permission.ReadExternalStorage;
+            if (CheckSelfPermission(permission) != (int)Permission.Granted)
+            {
+                string[] permissions = { Manifest.Permission.WriteExternalStorage };
+                RequestPermissions(permissions, 0);
+            }
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             var btnCamera = FindViewById<Button>(Resource.Id.btnCamera);
             if (IsThereAnAppToTakePictures())
             {
+                
                 CreateDirectoryForPictures();
                 Button button = FindViewById<Button>(Resource.Id.btnCamera);
                 _imageView = FindViewById<ImageView>(Resource.Id.imageView);
@@ -69,25 +95,27 @@ namespace RealWear
                 if (isRecording)
                 {
                     // create the intent and start the activity
-                    var voiceIntent = new Intent(RecognizerIntent.ActionRecognizeSpeech);
-                    voiceIntent.PutExtra(RecognizerIntent.ExtraLanguageModel, RecognizerIntent.LanguageModelFreeForm);
+                    /*var voiceIntent = new Intent(RecognizerIntent.ActionRecognizeSpeech);
+                    voiceIntent.PutExtra(RecognizerIntent.ExtraLanguageModel, RecognizerIntent.LanguageModelFreeForm);*/
 
                     // put a message on the modal dialog
                     //voiceIntent.PutExtra(RecognizerIntent.ExtraPrompt, Application.Context.GetString(Resource.String.messageSpeakNow));
 
                     // if there is more then 1.5s of silence, consider the speech over
+
+                    /*
                     voiceIntent.PutExtra(RecognizerIntent.ExtraSpeechInputCompleteSilenceLengthMillis, 1500);
                     voiceIntent.PutExtra(RecognizerIntent.ExtraSpeechInputPossiblyCompleteSilenceLengthMillis, 1500);
                     voiceIntent.PutExtra(RecognizerIntent.ExtraSpeechInputMinimumLengthMillis, 15000);
-                    voiceIntent.PutExtra(RecognizerIntent.ExtraMaxResults, 1);
+                    voiceIntent.PutExtra(RecognizerIntent.ExtraMaxResults, 1);*/
 
                     // you can specify other languages recognised here, for example
                     // voiceIntent.PutExtra(RecognizerIntent.ExtraLanguage, Java.Util.Locale.German);
                     // if you wish it to recognise the default Locale language and German
                     // if you do use another locale, regional dialects may not be recognised very well
 
-                    voiceIntent.PutExtra(RecognizerIntent.ExtraLanguage, Java.Util.Locale.Default);
-                    StartActivityForResult(voiceIntent, VOICE);
+                    /*voiceIntent.PutExtra(RecognizerIntent.ExtraLanguage, Java.Util.Locale.Default);
+                    StartActivityForResult(voiceIntent, VOICE);*/
                 }
             }
         }
@@ -117,7 +145,7 @@ namespace RealWear
                             //StartActivityForResult(intent, 0);
                             //StartActivityForResult(intent, 0);
                         }
-                        StartActivity(typeof(CustomCamera));
+                        //StartActivity(typeof(CustomCamera));
 
                     }
                 }
@@ -140,6 +168,11 @@ namespace RealWear
                 if (App.bitmap != null)
                 {
                     _imageView.SetImageBitmap(App.bitmap);
+                    System.IO.MemoryStream stream = new System.IO.MemoryStream();
+                    App.bitmap.Compress(Bitmap.CompressFormat.Png, 100, stream);
+                    byte[] imageByteArray = stream.ToArray();
+                    stream.Dispose();
+                    Task<string> visionAPIResult = getVisionAPIData(imageByteArray);
                     App.bitmap = null;
                 }
 
@@ -167,12 +200,45 @@ namespace RealWear
                 PackageManager.QueryIntentActivities(intent, PackageInfoFlags.MatchDefaultOnly);
             return availableActivities != null && availableActivities.Count > 0;
         }
-        private void TakeAPicture(object sender, EventArgs eventArgs)
+        async Task getCameraPermission()
         {
-            Intent intent = new Intent(MediaStore.ActionImageCapture);
-            App._file = new File(App._dir, String.Format("myPhoto_{0}.jpg", Guid.NewGuid()));
-            intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(App._file));
-            StartActivityForResult(intent, 0);
+            string[] permissions = { Manifest.Permission.Camera };
+            RequestPermissions(permissions, 0);
+            
+        }
+        private async void TakeAPicture(object sender, EventArgs eventArgs)
+        {
+            string permission = Manifest.Permission.Camera;
+            if (CheckSelfPermission(permission) != (int)Permission.Granted)
+            {
+                await getCameraPermission();
+            }
+            else
+            {
+                Intent intent = new Intent(MediaStore.ActionImageCapture);
+                App._file = new File(App._dir, String.Format("myPhoto_{0}.jpg", Guid.NewGuid()));
+                intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(App._file));
+                StartActivityForResult(intent, 0);
+            }
+        }
+        private async Task<string> getVisionAPIData(byte[] byteData)
+        {
+            var queryString = HttpUtility.ParseQueryString(string.Empty);
+            queryString["iterationId"] = "{string}";
+            queryString["application"] = "{string}";
+            var uri = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction/c0ef94ad-d356-4566-b717-7a88fe0de68d/image?" + queryString;
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Prediction-key", "9ba86598cacf4ec69d768ab91911fa89");
+            client.BaseAddress = new System.Uri(uri);
+            HttpResponseMessage response;
+            string responseContent;
+            using (var content = new ByteArrayContent(byteData))
+            {
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                response = client.PostAsync(uri, content).Result;
+                responseContent = response.Content.ReadAsStringAsync().Result;
+            }
+            return responseContent.ToString();
         }
     }
     public static class BitmapHelpers
@@ -203,7 +269,7 @@ namespace RealWear
             Bitmap resizedBitmap = BitmapFactory.DecodeFile(fileName, options);
 
             return resizedBitmap;
-            //return resizeAndRotate(resizedBitmap, outWidth, outHeight);
+            return resizeAndRotate(resizedBitmap, outWidth, outHeight);
         }
         public static Bitmap resizeAndRotate(Bitmap image, int width, int height)
         {

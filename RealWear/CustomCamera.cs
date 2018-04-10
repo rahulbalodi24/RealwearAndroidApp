@@ -14,6 +14,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
+using Android;
 
 namespace RealWear
 {
@@ -51,10 +52,22 @@ namespace RealWear
             {
                 try
                 {
-                    outStream = new FileOutputStream(dataDir + "/" + String.Format("myPhoto_{0}.jpg", Guid.NewGuid()));
-                    outStream.Write(data);
-                    outStream.Close();
-                    Task<string> visionAPIResult =  getVisionAPIData(data);
+                    string permission = Manifest.Permission.ReadExternalStorage;
+                    if (CheckSelfPermission(permission) != (int)Permission.Granted)
+                    {
+                        string[] permissions = { Manifest.Permission.ReadExternalStorage };
+                        RequestPermissions(permissions, 0);
+                    }
+                    permission = Manifest.Permission.ReadExternalStorage;
+                    if (CheckSelfPermission(permission) != (int)Permission.Granted)
+                    {
+                        string[] permissions = { Manifest.Permission.WriteExternalStorage };
+                        RequestPermissions(permissions, 0);
+                    }
+                    //outStream = new FileOutputStream(dataDir + "/" + String.Format("myPhoto_{0}.jpg", Guid.NewGuid()));
+                    //outStream.Write(data);
+                    //outStream.Close();
+                    Task<string> visionAPIResult = getVisionAPIData(data);
                 }
                 catch (System.IO.FileNotFoundException e)
                 {
@@ -82,6 +95,14 @@ namespace RealWear
         {
             try
             {
+                string permission = Manifest.Permission.Camera;
+                if (CheckSelfPermission(permission) != (int)Permission.Granted)
+                {
+                    string[] permissions = { Manifest.Permission.Camera };
+                    RequestPermissions(permissions, 0);
+
+                    
+                }
                 camera = Android.Hardware.Camera.Open();
                 Android.Hardware.Camera.Parameters p = camera.GetParameters();
                 p.PictureFormat = Android.Graphics.ImageFormatType.Jpeg;
@@ -92,9 +113,15 @@ namespace RealWear
                 camera.StartPreview();
                 Thread.Sleep(2000);
                 FindViewById(Resource.Id.customCameraClick).PerformClick();
+
             }
             catch (System.IO.IOException e)
             {
+            }
+            finally
+            {
+
+
             }
         }
 
