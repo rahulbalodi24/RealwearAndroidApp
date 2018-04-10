@@ -24,6 +24,7 @@ namespace RealWear
         public static File _file;
         public static File _dir;
         public static Bitmap bitmap;
+        public static string visionApiResult=null;
     }
     [Activity(Label = "RealWear", MainLauncher = true, ScreenOrientation = ScreenOrientation.Landscape)]
     public class MainActivity : Activity
@@ -40,23 +41,35 @@ namespace RealWear
             
             //return arePermissionsGranted;
         }
-       
+        protected override void OnResume()
+        {
+            base.OnResume();            
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            string permission = Manifest.Permission.ReadExternalStorage;
-            if (CheckSelfPermission(permission) != (int)Permission.Granted)
+            string permission = Manifest.Permission.WriteExternalStorage;
+            bool isPermissionGranted = false;
+            while (!isPermissionGranted)
             {
-                string[] permissions = { Manifest.Permission.ReadExternalStorage };
-                RequestPermissions(permissions, 0);
+                if (CheckSelfPermission(permission) != (int)Permission.Granted)
+                {
+                    string[] permissions = { Manifest.Permission.WriteExternalStorage };
+                    RequestPermissions(permissions, 0);
+                }
+                else
+                {
+                    isPermissionGranted = true;
+                }
+
             }
-            permission = Manifest.Permission.ReadExternalStorage;
-            if (CheckSelfPermission(permission) != (int)Permission.Granted)
-            {
-                string[] permissions = { Manifest.Permission.WriteExternalStorage };
-                RequestPermissions(permissions, 0);
-            }
+            //permission = Manifest.Permission.ReadExternalStorage;
+            // if (CheckSelfPermission(permission) != (int)Permission.Granted)
+            // {
+            //     string[] permissions = { Manifest.Permission.ReadExternalStorage };
+            //     RequestPermissions(permissions, 0);
+            // }
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             var btnCamera = FindViewById<Button>(Resource.Id.btnCamera);
@@ -68,7 +81,6 @@ namespace RealWear
                 _imageView = FindViewById<ImageView>(Resource.Id.imageView);
                 button.Click += TakeAPicture;
             }
-
 
             // set the isRecording flag to false (not recording)
             isRecording = false;
@@ -169,11 +181,15 @@ namespace RealWear
                 {
                     _imageView.SetImageBitmap(App.bitmap);
                     System.IO.MemoryStream stream = new System.IO.MemoryStream();
-                    App.bitmap.Compress(Bitmap.CompressFormat.Png, 100, stream);
+                    App.bitmap.Compress(Bitmap.CompressFormat.Jpeg, 0, stream);
                     byte[] imageByteArray = stream.ToArray();
                     stream.Dispose();
-                    Task<string> visionAPIResult = getVisionAPIData(imageByteArray);
                     App.bitmap = null;
+                   Task<string> visionAPIResult = getVisionAPIData(imageByteArray);
+                    var visionActivity = new Intent(this, typeof(VisionResult));
+                    visionActivity.PutExtra("visionData", App.visionApiResult);
+                    App.visionApiResult = null;
+                    StartActivity(visionActivity);
                 }
 
                 // Dispose of the Java side bitmap.
@@ -221,8 +237,19 @@ namespace RealWear
                 StartActivityForResult(intent, 0);
             }
         }
+        private async Task<string> getInternetAccessPermission()
+        {
+            string permission = Manifest.Permission.Internet;
+            if (CheckSelfPermission(permission) != (int)Permission.Granted)
+            {
+                string[] permissions = { Manifest.Permission.Internet };
+                RequestPermissions(permissions, 0);
+            }
+            return null;
+        }
         private async Task<string> getVisionAPIData(byte[] byteData)
         {
+            await getInternetAccessPermission();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
             queryString["iterationId"] = "{string}";
             queryString["application"] = "{string}";
@@ -238,6 +265,7 @@ namespace RealWear
                 response = client.PostAsync(uri, content).Result;
                 responseContent = response.Content.ReadAsStringAsync().Result;
             }
+           App.visionApiResult = responseContent.ToString();
             return responseContent.ToString();
         }
     }

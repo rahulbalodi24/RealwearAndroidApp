@@ -44,8 +44,14 @@ namespace RealWear
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f040009
+			public const int backToMainButton = 2130968585;
+			
 			// aapt resource value: 0x7f040006
 			public const int btnCamera = 2130968582;
+			
+			// aapt resource value: 0x7f040007
+			public const int btnOpenChat = 2130968583;
 			
 			// aapt resource value: 0x7f040002
 			public const int customCameraClick = 2130968578;
@@ -65,8 +71,8 @@ namespace RealWear
 			// aapt resource value: 0x7f040000
 			public const int parent = 2130968576;
 			
-			// aapt resource value: 0x7f040007
-			public const int visionResultText = 2130968583;
+			// aapt resource value: 0x7f040008
+			public const int visionResultTextView = 2130968584;
 			
 			static Id()
 			{
@@ -88,7 +94,7 @@ namespace RealWear
 			public const int Main = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int visionResult = 2130837506;
+			public const int VisionResult = 2130837506;
 			
 			static Layout()
 			{

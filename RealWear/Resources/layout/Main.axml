@@ -3,9 +3,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10">
+    android:weightSum="10"
+    android:background="@android:color/white">
     <ImageView
-        android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:id="@+id/imageView"
@@ -17,5 +17,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnCamera"
+        android:width="@android:dimen/app_icon_size" />
+    <Button
+        android:layout_weight="1"
+        android:text="Chat with BOT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnOpenChat"
         android:width="@android:dimen/app_icon_size" />
 </LinearLayout>
